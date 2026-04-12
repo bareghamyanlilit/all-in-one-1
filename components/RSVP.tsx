@@ -9,7 +9,7 @@ interface FormDataType {
   fullName: string;
   familySide: FamilySide;
   attending: Attending;
-  guestCount: number;
+  guestCount: number | string;
   comment: string;
 }
 
@@ -23,7 +23,7 @@ export default function AttendanceGuests() {
     fullName: "",
     familySide: null,
     attending: null,
-    guestCount: 0,
+    guestCount: "",
     comment: "",
   });
 
@@ -40,7 +40,12 @@ export default function AttendanceGuests() {
 
     setFormData((prev) => ({
       ...prev,
-      [name]: name === "guestCount" ? Math.max(0, Number(value) || 0) : value,
+      [name]:
+        name === "guestCount"
+          ? value === ""
+            ? ""
+            : Math.max(0, Number(value))
+          : value,
     }));
   };
 
@@ -87,7 +92,11 @@ export default function AttendanceGuests() {
       return;
     }
 
-    if (formData.attending === "Այո" && formData.guestCount === 0) {
+    const guestCountNumber = Number(formData.guestCount);
+    if (
+      formData.attending === "Այո" &&
+      (!formData.guestCount || guestCountNumber <= 0)
+    ) {
       setMessage({
         type: "error",
         text: "Խնդրում ենք մուտքագրել հյուրերի քանակը։",
@@ -126,7 +135,7 @@ export default function AttendanceGuests() {
         fullName: "",
         familySide: null,
         attending: null,
-        guestCount: 0,
+        guestCount: "",
         comment: "",
       });
 
