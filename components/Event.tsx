@@ -3,7 +3,7 @@ import Image from "next/image";
 import { TimeBox } from "./TimeBox";
 import { useEffect, useState } from "react";
 import { MusicPlayer } from "./music";
-import { anim, date, name, txt1, txt1_1, txt2, txt2_1 } from "@/data/data";
+import { anim, calendar, date, name, txt1, txt1_1, txt2, txt2_1 } from "@/data/data";
 import { motion } from "framer-motion";
 import AttendanceGuests from "./RSVP";
 import { Program } from "./Program";
@@ -56,6 +56,7 @@ export function Event({ openEnvelope }: any) {
           </div>
           <p className="FontSHK_Dzeragir text-[64px] text-vrayi">{date}</p>
         </div>
+
         {/* 2rd mas teqster */}
         <div className="FontSHK_Dzeragir px-5 my-20">
           <motion.h3 {...anim} className=" text-sovorakan relative text-[36px]">
@@ -141,8 +142,10 @@ export function Event({ openEnvelope }: any) {
             className="w-[80%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl absolute object-cover  "
           />
         </div>
+
         {/* hethashxvark */}
         <TimeBox />
+
         {/* jamnakacuyc */}
         <div className="relative mb-10">
           <Image
@@ -162,21 +165,22 @@ export function Event({ openEnvelope }: any) {
             />
             <div className="FontArmDecorativeU flex justify-around ml-4 -rotate-7">
               <div className="flex flex-col gap-10">
-                <p className="text-sm">Չորեքշաբթի</p>
-                <p className="text-4xl">5</p>
+                <p className="text-sm">{calendar[0][0]}</p>
+                <p className="text-4xl">{calendar[1][0]}</p>
               </div>
               <div className="flex flex-col gap-10">
-                <p className="text-sm">Հինգշաբթի</p>
-                <p className="text-4xl">6</p>
+                <p className="text-sm">{calendar[0][1]}</p>
+                <p className="text-4xl">{calendar[1][1]}</p>
               </div>
               <div className="flex flex-col gap-10">
-                <p className="text-sm">Ուրբաթ</p>
-                <p className="text-4xl">7</p>
+                <p className="text-sm">{calendar[0][2]}</p>
+                <p className="text-4xl">{calendar[1][2]}</p>
               </div>
             </div>
           </div>
           <Program />
         </div>
+
         {/* nkar */}
         <motion.div {...anim} className="px-5">
           <Image
@@ -187,6 +191,7 @@ export function Event({ openEnvelope }: any) {
             className="w-full  object-cover rounded-xl mb-20 "
           />
         </motion.div>
+
         {/* erb asen teqst */}
         <motion.p
           {...anim}
@@ -197,6 +202,7 @@ export function Event({ openEnvelope }: any) {
             {txt2_1}
           </span>
         </motion.p>
+
         {/* RSVP */}
         <AttendanceGuests />
         {/* sexanner */}

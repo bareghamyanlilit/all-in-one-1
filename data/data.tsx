@@ -1,7 +1,12 @@
 export const name = ["Կարեն", "Լիկա"];
 export const date = "17/07/2026";
 
-export const dateTimeBox: any = new Date("2026-08-06T17:00:00");
+export const dateTimeBox: any = new Date("2026-07-17T17:00:00");
+
+export const calendar: any = [
+  ["Հինգշաբթի", "Ուրբաթ", "Շաբաթ"],
+  ["16", "17", "18"],
+];
 
 export const txt1 =
   "Դուք հրավիրված եք մեր Հարսանիքին\nՕր որտեղ հիմք կդրվի\n Նոր ընտանիքի";
@@ -14,22 +19,22 @@ export const txt2_1 =
 
 export const program: any = [
   {
-    time: "12:00",
+    time: "10:00",
     title: "Փեսայի տուն",
   },
   {
-    time: "13:00",
-    title: "Հարսի տուն",
+    time: "12:00",
+    title: "Հարսնացուի տուն",
   },
   {
-    time: "15:00",
+    time: "14:00",
     title: "Ս․ Գայանե Եկեղեցի",
     address: "Ս․ Գայանե Եկեղեցի",
   },
   {
     time: "17:00",
-    title: "Մկրտչյանս Հոլլ",
-    address: "Մկրտչյանս Հոլլ",
+    title: "Էլինար Ռեստորանային Համալիր",
+    address: "Էլինար Ռեստորանային Համալիր",
   },
 ];
 

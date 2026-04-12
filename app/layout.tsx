@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Կարենի և Լիկայի նշանադրության հրավիրատոմս",
     description: "Նշանադրության հրավիրատոմս",
-    url: "https://wedding-invitation-3.vercel.app/",
+    url: "https://site-up-all-in-one-1.vercel.app/",
     siteName: "Կարեն և Լիկա",
     images: [
       {
