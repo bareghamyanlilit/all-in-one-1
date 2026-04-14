@@ -1,5 +1,6 @@
 "use client";
 
+import { rsvp } from "@/data/data";
 import { useState } from "react";
 
 type FamilySide = "Հարսի կողմից" | "Փեսայի կողմից" | null;
@@ -107,24 +108,21 @@ export default function AttendanceGuests() {
     setIsSubmitting(true);
 
     try {
-      await fetch(
-        "https://script.google.com/macros/s/AKfycbwpVw7U4i1Qo7WVmKgzStl2KQIE7B98_oUNT-a79rCiduawH-G6cnhPm04ERsYThwIX/exec",
-        {
-          method: "POST",
-          mode: "no-cors",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: new URLSearchParams({
-            fullName: formData.fullName,
-            familySide: formData.familySide || "",
-            attending: formData.attending || "",
-            guestCount:
-              formData.attending === "Այո" ? String(formData.guestCount) : "0",
-            comment: formData.comment || "",
-          }).toString(),
+      await fetch(rsvp, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-      );
+        body: new URLSearchParams({
+          fullName: formData.fullName,
+          familySide: formData.familySide || "",
+          attending: formData.attending || "",
+          guestCount:
+            formData.attending === "Այո" ? String(formData.guestCount) : "0",
+          comment: formData.comment || "",
+        }).toString(),
+      });
 
       setMessage({
         type: "success",
